@@ -1,0 +1,314 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Foro Hud API REST
+meta:
+  id: wrk_f7758717848d4fae9cd7d51855448ebe
+  created: 1773093424883
+  modified: 1774149516841
+  description: ""
+collection:
+  - name: Auth
+    meta:
+      id: fld_4c7bc8dcf6134983bf7c168e06185259
+      created: 1774148802599
+      modified: 1774148851995
+      sortKey: -1774148802600
+      description: ""
+    children:
+      - url: http://localhost:8080/auth/login
+        name: Login
+        meta:
+          id: req_0b97235a8135495c8a02e46c66d91db6
+          created: 1773522601115
+          modified: 1774148830318
+          isPrivate: false
+          description: ""
+          sortKey: -1774148814676
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"login" : "ever",
+            	"contrasena" : "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/auth/register
+        name: Register
+        meta:
+          id: req_77fbdaaffa1e476fbebd4e9aba4d28b8
+          created: 1773858290105
+          modified: 1774148835133
+          isPrivate: false
+          description: ""
+          sortKey: -1774148814651
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"login" : "sandro",
+            	"contrasena" : "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/auth/refresh
+        name: Refresh
+        meta:
+          id: req_92c7f4c51a624a25bcb5b128c1153a25
+          created: 1774071314767
+          modified: 1774148836759
+          isPrivate: false
+          description: ""
+          sortKey: -1774148814638.5
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/auth/logout
+        name: Logout
+        meta:
+          id: req_3adb0879953a44fab5db0cb3209815b3
+          created: 1774071336937
+          modified: 1774148832878
+          isPrivate: false
+          description: ""
+          sortKey: -1774148814626
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Tópicos
+    meta:
+      id: fld_1d16d9c609cc499ebcf700693f398c53
+      created: 1774148844200
+      modified: 1774148844200
+      sortKey: -1774148844200
+      description: ""
+    children:
+      - url: http://localhost:8080/topicos
+        name: Listar
+        meta:
+          id: req_6f781a56964c4a6d91bcda8ddc111ac0
+          created: 1773093424893
+          modified: 1774148873459
+          isPrivate: false
+          description: ""
+          sortKey: -1774148846977
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.tokenJWT }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos
+        name: Registrar
+        meta:
+          id: req_3425f68f96a74c15afa22fe680441ad2
+          created: 1773187138526
+          modified: 1774148876870
+          isPrivate: false
+          description: ""
+          sortKey: -1774148846952
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+             "titulo": "Error con JWT",
+             "mensaje": "No funciona el token",
+             "curso": "JWT"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.tokenJWT }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/4
+        name: Actualizar
+        meta:
+          id: req_66bdc1376bd14d9283065317c0ccb926
+          created: 1773351636236
+          modified: 1774148880997
+          isPrivate: false
+          description: ""
+          sortKey: -1774148846939.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+             "titulo": "Error con Python",
+             "mensaje": "No funciona el main",
+             "curso": "Python"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.tokenJWT }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/5
+        name: Eliminar
+        meta:
+          id: req_4a3b2378fc004eea907489fc07dd6b32
+          created: 1773352193056
+          modified: 1774148885995
+          isPrivate: false
+          description: ""
+          sortKey: -1774148846933.25
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/5
+        name: Detalle
+        meta:
+          id: req_62fd696d5d70492b92b6a92f4fd98b47
+          created: 1773357336081
+          modified: 1774148889369
+          isPrivate: false
+          description: ""
+          sortKey: -1774148846927
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.tokenJWT }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_57b890667b0e2731e83f8a05584cbb56b84cd196
+    created: 1773093424888
+    modified: 1774147717503
+  cookies:
+    - id: 9f43c3e7-3131-49de-a201-ff4d12ab8826
+      key: JSESSIONID
+      value: 4D5A69365506B39DFD77C85915CAFEC7
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: true
+      hostOnly: true
+    - id: 4f87605c-17a4-4de6-853d-aeaebe2e087e
+      key: refreshToken
+      value: ""
+      domain: localhost
+      path: /auth
+      secure: true
+      httpOnly: true
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_57b890667b0e2731e83f8a05584cbb56b84cd196
+    created: 1773093424886
+    modified: 1774137507107
+    isPrivate: false
+  data:
+    tokenJWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGb3JvIEh1YiBBUEkiLCJzdWIiOiJldmVyIiwiZXhwIjoxNzc0MTQ0NjUxfQ.b3adYMg9i6e30CO2Br7iaTld061kE2MIaI6UQ5Q8WNE
